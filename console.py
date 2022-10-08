@@ -1,9 +1,9 @@
 import pdb
-from models.cake import Cake
 from models.baker import Baker
+from models.cake import Cake
 
-import repositories.cake_repository as cake_repository
 import repositories.baker_repository as baker_repository
+import repositories.cake_repository as cake_repository
 
 cake_repository.delete_all()
 baker_repository.delete_all()
@@ -16,9 +16,9 @@ baker_repository.save(baker_2)
 
 baker_repository.select_all()
 
-cake_1 = Cake("Victoria Sponge", 10, 2.10, 4.20, baker_1, "Birthday Cake", True, 4, 6)
+cake_1 = Cake("Victoria Sponge", 10, 2, 4, baker_1, "Birthday Cake", True, 4, 6)
 cake_repository.save(cake_1)
-cake_2 = Cake("Chocolate Egg Cake", 5, 2.95, 4.60, baker_2, "Easter Cake", False, 10, 13)
+cake_2 = Cake("Chocolate Egg Cake", 5, 2, 4, baker_2, "Easter Cake", False, 10, 13)
 cake_repository.save(cake_2)
 
 
