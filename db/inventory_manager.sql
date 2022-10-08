@@ -6,7 +6,7 @@ CREATE TABLE bakers (
   full_name VARCHAR(255),
   favourite_quote VARCHAR(255),
   length_of_service INT,
-  salary FLOAT,
+  salary FLOAT
 );
 
 CREATE TABLE cakes (
@@ -15,7 +15,7 @@ CREATE TABLE cakes (
   qty_on_hand INT,
   manufacture_cost INT,
   selling_price FLOAT,
-  baker INT NOT NULL REFERENCED bakers(id),
+  baker INT NOT NULL REFERENCES bakers(id),
   category VARCHAR(255),
   vegetarian BOOLEAN,
   daily_sales_forecast INT,
