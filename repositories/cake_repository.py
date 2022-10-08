@@ -6,8 +6,8 @@ import repositories.baker_repository as baker_repository
 
 
 def save(cake):
-    sql = "INSERT INTO cakes (description, baker_id, duration, completed) VALUES (%s, %s, %s, %s) RETURNING *"
-    values = [cake.description, cake.baker.id, cake.duration, cake.completed]
+    sql = "INSERT INTO cakes (full_name , qty_on_hand, manufacture_cost, selling_price, baker_id, category, vegetarian, daily_sales_forecast, par_level) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *"
+    values = [cake.full_name, cake.qty_on_hand, cake.manufacture_cost, cake.manufacture_cost, cake.baker.id, cake.category, cake.vegetarian, cake.daily_sales_forecast, cake.par_level]
     results = run_sql(sql, values)
     id = results[0]['id']
     cake.id = id
@@ -22,7 +22,7 @@ def select_all():
 
     for row in results:
         baker = baker_repository.select(row['baker_id'])
-        cake = Cake(row['description'], baker, row['duration'], row['completed'], row['id'] )
+        cake = Cake (row['full_name'], row['qty_on_hand'], row['manufacture_cost'], row['manufacture_cost'], baker, row['category'], row['vegetarian'], row['daily_sales_forecast'], row['par_level'], row['id'] )
         cakes.append(cake)
     return cakes
 
@@ -33,14 +33,10 @@ def select(id):
     sql = "SELECT * FROM cakes WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
-
-    # checking if the list returned by `run_sql(sql, values)` is empty. Empty lists are 'fasly' 
-    # Could alternativly have..
-    # if len(results) > 0 
     if results:
         result = results[0]
         baker = baker_repository.select(result['baker_id'])
-        cake = Cake(result['description'], baker, result['duration'], result['completed'], result['id'] )
+        cake = Cake(result['full_name'], result['qty_on_hand'], result['manufacture_cost'], result['selling_price'], baker, result['category'], result['vegetarian'], result['daily_sales_forecast'], result['par_level'], result['id'] )
     return cake
 
 
@@ -56,6 +52,6 @@ def delete(id):
 
 
 def update(cake):
-    sql = "UPDATE cakes SET (description, baker_id, duration, completed) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [cake.description, cake.baker.id, cake.duration, cake.completed, cake.id]
+    sql = "(full_name , qty_on_hand, manufacture_cost, selling_price, baker_id, category, vegetarian, daily_sales_forecast, par_level) = (%s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values =  [cake.full_name, cake.qty_on_hand, cake.manufacture_cost, cake.manufacture_cost, cake.baker.id, cake.category, cake.vegetarian, cake.daily_sales_forecast, cake.par_level]
     run_sql(sql, values)

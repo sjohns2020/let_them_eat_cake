@@ -15,7 +15,7 @@ CREATE TABLE cakes (
   qty_on_hand INT,
   manufacture_cost INT,
   selling_price FLOAT,
-  baker INT NOT NULL REFERENCES bakers(id),
+  baker_id INT NOT NULL REFERENCES bakers(id),
   category VARCHAR(255),
   vegetarian BOOLEAN,
   daily_sales_forecast INT,
