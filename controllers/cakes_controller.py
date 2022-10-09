@@ -8,12 +8,12 @@ cakes_blueprint = Blueprint("cakes", __name__)
 
 @cakes_blueprint.route("/")
 def landing():
-    cakes = cake_repository.select_all() # NEW
+    cakes = cake_repository.select_all()
     return render_template("index.html", all_cakes = cakes)
 
 @cakes_blueprint.route("/dashboard")
 def dashboard():
-    cakes = cake_repository.select_all() # NEW
+    cakes = cake_repository.select_all()
     return render_template("dashboard/index.html", all_cakes = cakes)
     
 
@@ -21,15 +21,15 @@ def dashboard():
 
 @cakes_blueprint.route("/cakes")
 def cakes():
-    cakes = cake_repository.select_all() # NEW
+    cakes = cake_repository.select_all()
     return render_template("cakes/index.html", all_cakes = cakes)
 
 # NEW
 # GET '/cakes/new'
 @cakes_blueprint.route("/cakes/new", methods=['GET'])
 def new_cake():
-    bakers = baker_repository.select_all()
-    return render_template("cakes/new.html", all_bakers = bakers)
+    cakes = cake_repository.select_all()
+    return render_template("/cakes/new.html", all_cakes = cakes)
 
 # CREATE
 # POST '/cakes'

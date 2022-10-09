@@ -1,0 +1,27 @@
+body {
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+body header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    background-image: linear-gradient(white,white, white,  white, white,  white, rgba(205, 38, 139, 0.895));
+}
+
+body header ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+body header img {
+    height: 80px
+}
+
+body main {
+    background-image: url('images/background1.png');
+    background-image: linear-gradient(rgba(205, 38, 139, 0.895), rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203));
+    height: 50em;
+}

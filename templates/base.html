@@ -9,14 +9,23 @@
 </head>
 <body>
     <header>
-        <h1>I am the base.html header</h1>
-
-
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/cakes">Inventory</a></li>
+            <li><a href="/bakers">Bakers</a></li>
+            <li><a href="/">Cake Shop</a></li>
+        </ul>
+        <h1>Cake Shop</h1>
+        <img href="/" src="./static/images/background1.png" alt="logo">
     </header>
-    {% block content %}
+    <main>
+        {% block content %}
         
-    {% endblock  %}
+        {% endblock  %}
+    </main>
+    <footer>
 
+    </footer>
     
 </body>
 </html>

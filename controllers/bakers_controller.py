@@ -8,7 +8,7 @@ bakers_blueprint = Blueprint("bakers", __name__)
 
 @bakers_blueprint.route("/bakers")
 def bakers():
-    bakers = baker_repository.select_all() # NEW
+    bakers = baker_repository.select_all()
     return render_template("bakers/index.html", all_bakers = bakers)
 
 # NEW
