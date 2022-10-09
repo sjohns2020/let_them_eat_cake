@@ -6,6 +6,19 @@ import repositories.baker_repository as baker_repository
 
 cakes_blueprint = Blueprint("cakes", __name__)
 
+@cakes_blueprint.route("/")
+def landing():
+    cakes = cake_repository.select_all() # NEW
+    return render_template("index.html", all_cakes = cakes)
+
+@cakes_blueprint.route("/dashboard")
+def dashboard():
+    cakes = cake_repository.select_all() # NEW
+    return render_template("dashboard/index.html", all_cakes = cakes)
+    
+
+
+
 @cakes_blueprint.route("/cakes")
 def cakes():
     cakes = cake_repository.select_all() # NEW
@@ -55,12 +68,17 @@ def edit_cake(id):
 # PUT '/cakes/<id>'
 @cakes_blueprint.route("/cakes/<id>", methods=['POST'])
 def update_cake(id):
-    description = request.form['description']
-    baker_id     = request.form['baker_id']
-    duration    = request.form['duration']
-    completed   = request.form['completed']
-    baker        = baker_repository.select(baker_id)
-    cake        = Cake(description, baker, duration, completed, id)
+    full_name = request.form['full_name']
+    qty_on_hand = request.form['qty_on_hand']
+    manufacture_cost = request.form['manufacture_cost']
+    selling_price = request.form['selling_price']
+    baker_id = request.form['baker_id']
+    category = request.form['category']
+    vegetarian = request.form['vegetarian']
+    daily_sales_forecast = request.form['daily_sales_forecast']
+    par_level = request.form['par_level']
+    baker = baker_repository.select(baker_id)
+    cake = Cake(full_name, qty_on_hand, manufacture_cost, selling_price, baker, category, vegetarian, daily_sales_forecast, par_level, id)
     cake_repository.update(cake)
     return redirect('/cakes')
 
