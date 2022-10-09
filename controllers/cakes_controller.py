@@ -65,6 +65,16 @@ def edit_cake(id):
     bakers = baker_repository.select_all()
     return render_template('cakes/edit.html', cake = cake, all_bakers = bakers)
 
+# EDIT DETAILS
+# GET '/cakes/<id>/edit'
+@cakes_blueprint.route("/cakes/<id>/details", methods=['GET'])
+def edit_cake_details(id):
+    cake = cake_repository.select(id)
+    bakers = baker_repository.select_all()
+    return render_template('cakes/edit_details.html', cake = cake, all_bakers = bakers)
+
+
+
 # UPDATE
 # PUT '/cakes/<id>'
 @cakes_blueprint.route("/cakes/<id>", methods=['POST'])
@@ -82,6 +92,7 @@ def update_cake(id):
     cake = Cake(full_name, qty_on_hand, manufacture_cost, selling_price, baker, category, vegetarian, daily_sales_forecast, par_level, id)
     cake_repository.update(cake)
     return redirect('/cakes')
+
 
 # DELETE
 # DELETE '/cakes/<id>'

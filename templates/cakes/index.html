@@ -22,7 +22,7 @@
     {% for cake in all_cakes %}
     <tr>
         <form action="/cakes/{{cake.id}}" method="post">
-        <th><a href="/cakes/{{ cake.id }}/edit" class="fa fa-pencil"></a></th>
+        <th><a href="/cakes/{{cake.id}}/details" class="fa fa-pencil"></a></th>
         <th>
             <input type="text" name="category" value="{{ cake.category }}">
         
