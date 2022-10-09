@@ -1,8 +1,9 @@
 {% extends './base.html' %}
 
 {% block content %}
-<br><br><br>
-<h1>Edit cake form</h1>
+    <br><br><br>
+    <h1>Edit Cake Details</h1>
+    <a href="cakes/new">Add new Cake</a>
 
 <table>
     <tr>
@@ -40,26 +41,26 @@
             </select>
         </th>
         <th>
-            <input type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
+            <input class="small-input" type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
            
         </th>
         <th>
-            <input type="number" name="selling_price" value="{{ cake.selling_price }}">
+            <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
         
         </th>
         <th>
-            <input type="text" name="vegetarian" value="{{ cake.vegetarian }}">
+            <input class="small-input" type="text" name="vegetarian" value="{{ cake.vegetarian }}">
         
         </th>
         <th>
-            <input type="number" name="qty_on_hand" value="{{ cake.qty_on_hand }}">
+            <p name="qty_on_hand">{{ cake.qty_on_hand }}</p>
         
         </th>
         <th>
-            <input type="number" name="daily_sales_forecast" value="{{ cake.daily_sales_forecast }}">
+            <p name="daily_sales_forecast">{{ cake.daily_sales_forecast }}</p>
         </th>
         <th>
-            <input type="number" name="par_level" value="{{ cake.par_level }}">
+            <p name="par_level">{{ cake.par_level }}</p>
         
         </th>            
     </tr>

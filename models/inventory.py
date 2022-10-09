@@ -6,6 +6,9 @@ class Inventory:
         self.cakes = []
         self.bakers = []
     
+    def sort_cakes(self):
+        self.cakes.sort()
+
     def create_baker():
         pass
     def show_baker():

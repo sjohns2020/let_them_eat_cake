@@ -10,7 +10,7 @@ class Cake:
             self.daily_sales_forecast = daily_sales_forecast
             self.par_level = par_level
             self.id = id
-
+    
     def profit_margin():
         pass
 

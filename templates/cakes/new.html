@@ -3,7 +3,6 @@
 {% block content %}
     <br><br><br>
     <h1>Cakes Inventory</h1>
-    <a href="cakes/new">Add new Cake</a>
 
 <table>
     <tr>
@@ -40,11 +39,11 @@
             </select>
         </th>
         <th>
-            <input class="small-input" type="number" name="manufacture_cost" placeholder="manufacture_cost" required autofocus>
+            <input class="small-input"  type="number" placeholder="£0.00" min="0"  step="0.01" pattern="^\d+(?:\.\d{1,2})?$"  name="manufacture_cost" required autofocus>
            
         </th>
         <th>
-            <input class="small-input" type="number" name="selling_price" placeholder="selling_price" required autofocus>
+            <input class="small-input"  type="number" placeholder="£0.00" min="0" step="0.01" pattern="^\d+(?:\.\d{1,2})?$"  name="selling_price" placeholder="selling_price" required autofocus>
         
         </th>
         <th>
@@ -63,7 +62,7 @@
         
         </th>            
     </tr>
-    <button type="submit">Add New Cake</button>
+    <button type="submit">Save New Cake</button>
     </form>  
     </table>
 
