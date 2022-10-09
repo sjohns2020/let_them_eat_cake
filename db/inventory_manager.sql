@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS inventory;
 DROP TABLE IF EXISTS cakes;
 DROP TABLE IF EXISTS bakers;
 
@@ -21,5 +22,13 @@ CREATE TABLE cakes (
   daily_sales_forecast INT,
   par_level INT
 );
+
+-- CREATE TABLE inventory (
+--     id SERIAL PRIMARY KEY
+--     full_name VARCHAR(255),
+--     available_funds FLOAT,
+--     baker_id INT NOT NULL REFERENCES bakers(id) ON DELETE CASCADE,
+--     cake_id INT NOT NULL REFERENCES cakes(id) ON DELETE CASCADE,
+-- )
 
 

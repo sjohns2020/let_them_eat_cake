@@ -1,7 +1,7 @@
 class Inventory:
 
     def __init__(self, full_name, available_funds):
-        self.full_name  = full_name 
+        self.full_name = full_name 
         self.available_funds = available_funds
         self.cakes = []
         self.bakers = []
@@ -33,8 +33,14 @@ class Inventory:
     def list_of_vegetarian_cakes():
         pass
 
-    def list_of_low_stock_cakes():
-        pass
+    def list_of_low_stock_cakes(self):
+        low_stock_cakes = []
+        for cake in self.cakes:
+            if cake.qty_on_hand < cake.par_level:
+                low_stock_cakes.append(cake)
+        return low_stock_cakes
+        
+
     def list_of_out_of_stock_cakes():
         pass
 

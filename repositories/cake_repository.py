@@ -2,6 +2,7 @@ from db.run_sql import run_sql
 
 from models.cake import Cake
 from models.baker import Baker
+from models.inventory import Inventory
 import repositories.baker_repository as baker_repository
 
 

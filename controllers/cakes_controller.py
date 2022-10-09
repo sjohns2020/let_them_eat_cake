@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.cake import Cake
+from models.inventory import Inventory
 import repositories.cake_repository as cake_repository
 import repositories.baker_repository as baker_repository
 
@@ -14,7 +15,11 @@ def landing():
 @cakes_blueprint.route("/dashboard")
 def dashboard():
     cakes = cake_repository.select_all()
-    return render_template("dashboard/index.html", all_cakes = cakes)
+    low_stock_cakes = []
+    for cake in cakes:
+        if cake.qty_on_hand < cake.par_level:
+            low_stock_cakes.append(cake)
+    return render_template("dashboard/index.html", all_cakes = cakes, low_stock_cakes = low_stock_cakes)
     
 
 

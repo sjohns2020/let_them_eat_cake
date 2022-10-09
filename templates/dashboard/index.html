@@ -4,5 +4,57 @@
 <br><br><br>
 <h1>Dashboard</h1>
 
+<h2>Out of stock items</h2>
+
+<table class="table" id="dashboard-table">
+    <tr>
+        <th>Name</th>
+    </tr>  
+    {% for cake in all_cakes %}
+    {% if cake.qty_on_hand == 0 %}
+    <tr>
+        <td>
+            <p class="dash" name="full_name">{{ cake.full_name }}</p>
+        
+        </td>         
+    </tr>
+    {% endif %}
+    {% endfor %}
+    </table>
+
+
+<h2>Low stock items</h2>
+
+
+<table class="table" id="dashboard-table">
+    <tr>
+        <th>Name</th>
+        <th>On Hand Quantity</th>
+        <th>Daily Sales Forecast</th>
+        <th>Par Level</th>
+    </tr>  
+    {% for cake in low_stock_cakes %}
+    <tr>
+        <td>
+            <p class="dash" name="full_name">{{ cake.full_name }}</p>
+        
+        </td>
+
+        <td>
+            <p class="dash" name="qty_on_hand">{{ cake.qty_on_hand }}</p>
+        
+        </td>
+        <td>
+            <p class="dash" name="daily_sales_forecast" >{{ cake.daily_sales_forecast}} </p>
+        </td>
+        <td>
+            <p class="dash"  name="par_level" >{{ cake.par_level }}</p>
+        
+        </td>            
+    </tr>
+    {% endfor %}
+    </table>
+
+
 
 {% endblock %}

@@ -5,7 +5,7 @@
     <h1>Cakes Inventory</h1>
     <a href="cakes/new">Add new Cake</a>
 
-<table>
+<table class="table">
     <tr>
         <th></th>
         <th>Category</th>
@@ -22,16 +22,16 @@
     {% for cake in all_cakes %}
     <tr>
         <form action="/cakes/{{cake.id}}" method="post">
-        <th><a href="/cakes/{{cake.id}}/details" class="fa fa-pencil"></a></th>
-        <th>
+        <td><a href="/cakes/{{cake.id}}/details" class="fa fa-pencil"></a></th>
+        <td>
             <input type="text" name="category" value="{{ cake.category }}">
         
-        </th>
-        <th>
+        </td>
+        <td>
             <input type="text" name="full_name" value="{{ cake.full_name }}">
         
-        </th>
-        <th> 
+        </td>
+        <td> 
             <select name="baker_id">
                 {% for baker in all_bakers  %}
                 <option value="{{ baker.id }}"
@@ -41,30 +41,30 @@
                 </option>
                 {% endfor %}
             </select>
-        </th>
-        <th>
+        </td>
+        <td>
             <input class="small-input" type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
            
-        </th>
-        <th>
+        </td>
+        <td>
             <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
         
-        </th>
-        <th>
+        </td>
+        <td>
             <input class="small-input" type="text" name="vegetarian" value="{{ cake.vegetarian }}">
         
-        </th>
-        <th>
+        </td>
+        <td>
             <input class="small-input" type="number" name="qty_on_hand" value="{{ cake.qty_on_hand }}">
         
-        </th>
-        <th>
+        </td>
+        <td>
             <input class="small-input" type="number" name="daily_sales_forecast" value="{{ cake.daily_sales_forecast }}">
-        </th>
-        <th>
+        </td>
+        <td>
             <input class="small-input" type="number" name="par_level" value="{{ cake.par_level }}">
         
-        </th>            
+        </td>            
     </tr>
     {% endfor %}
     <button type="submit">Update Quantities</button>

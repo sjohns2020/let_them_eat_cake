@@ -5,7 +5,7 @@
     <h1>Edit Cake Details</h1>
     <a href="cakes/new">Add new Cake</a>
 
-<table>
+<table class="table">
     <tr>
         <th>Category</th>
         <th>Name</th>
@@ -21,15 +21,15 @@
     <tr>
 
         <form action="/cakes/{{cake.id}}" method="post">
-        <th>
+        <td>
             <input type="text" name="category" value="{{ cake.category }}">
         
-        </th>
-        <th>
+        </td>
+        <td>
             <input type="text" name="full_name" value="{{ cake.full_name }}">
         
-        </th>
-        <th> 
+        </td>
+        <td> 
             <select name="baker_id">
                 {% for baker in all_bakers  %}
                 <option value="{{ baker.id }}"
@@ -43,26 +43,26 @@
         <th>
             <input class="small-input" type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
            
-        </th>
-        <th>
+        </td>
+        <td>
             <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
         
-        </th>
-        <th>
+        </td>
+        <td>
             <input class="small-input" type="text" name="vegetarian" value="{{ cake.vegetarian }}">
         
-        </th>
-        <th>
+        </td>
+        <td>
             <p name="qty_on_hand">{{ cake.qty_on_hand }}</p>
         
-        </th>
-        <th>
+        </td>
+        <td>
             <p name="daily_sales_forecast">{{ cake.daily_sales_forecast }}</p>
-        </th>
-        <th>
+        </td>
+        <td>
             <p name="par_level">{{ cake.par_level }}</p>
         
-        </th>            
+        </td>            
     </tr>
     <button type="submit">Update Quantities</button>
     </form>  

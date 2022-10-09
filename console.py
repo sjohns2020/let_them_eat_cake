@@ -22,5 +22,4 @@ cake_2 = Cake("Chocolate Egg Cake", 5, 12, 22, baker_2, "Easter Cake", False, 10
 cake_repository.save(cake_2)
 
 
-
 pdb.set_trace()

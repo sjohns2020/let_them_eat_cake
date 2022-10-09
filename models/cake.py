@@ -10,12 +10,15 @@ class Cake:
             self.daily_sales_forecast = daily_sales_forecast
             self.par_level = par_level
             self.id = id
-    
+
     def profit_margin():
         pass
 
-    def low_stock():
-        pass
+    # def low_stock(self):
+    #     if self.qty_on_hand < self.par_level:
+    #         return
+
+
 
     def out_of_stock():
         pass
