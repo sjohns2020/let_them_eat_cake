@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Cake Shop Inventory System</title>
 </head>
 <body>
@@ -16,7 +16,7 @@
             <li><a href="/">Cake Shop</a></li>
         </ul>
         <h1>Cake Shop</h1>
-        <img href="/" src="./static/images/background1.png" alt="logo">
+        <img href="/" src=" {{ url_for('static', filename='images/background1.png') }} " alt="logo">
     </header>
     <main>
         {% block content %}

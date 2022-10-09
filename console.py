@@ -16,9 +16,9 @@ baker_repository.save(baker_2)
 
 baker_repository.select_all()
 
-cake_1 = Cake("Victoria Sponge", 10, 2, 4, baker_1, "Birthday Cake", True, 4, 6)
+cake_1 = Cake("Victoria Sponge", 10, 11, 23, baker_1, "Birthday Cake", True, 4, 6)
 cake_repository.save(cake_1)
-cake_2 = Cake("Chocolate Egg Cake", 5, 2, 4, baker_2, "Easter Cake", False, 10, 13)
+cake_2 = Cake("Chocolate Egg Cake", 5, 12, 22, baker_2, "Easter Cake", False, 10, 13)
 cake_repository.save(cake_2)
 
 

@@ -49,7 +49,7 @@ def delete(id):
 
 def update(baker):
     sql = "UPDATE bakers SET (full_name, favourite_quote, length_of_service, salary) = (%s, %s, %s, %s) WHERE id = %s"
-    values =  [baker.full_name, baker.favourite_quote, baker.length_of_service, baker.salary]
+    values =  [baker.full_name, baker.favourite_quote, baker.length_of_service, baker.salary, baker.id]
     run_sql(sql, values)
 
 def cakes(baker):

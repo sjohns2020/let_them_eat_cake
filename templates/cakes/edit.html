@@ -1,0 +1,70 @@
+{% extends './base.html' %}
+
+{% block content %}
+<br><br><br>
+<h1>Edit cake form</h1>
+
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Name</th>
+        <th>Baker</th>
+        <th>Cost</th>
+        <th>Selling Price</th>
+        <th>Sutable for Vegetarians?</th>
+        <th>On Hand Quantity</th>
+        <th>Daily Sales Forecast</th>
+        <th>Par Level</th>
+    </tr>
+    </form>  
+    <tr>
+
+        <form action="/cakes/{{cake.id}}" method="post">
+        <th>
+            <input type="text" name="category" value="{{ cake.category }}">
+        
+        </th>
+        <th>
+            <input type="text" name="full_name" value="{{ cake.full_name }}">
+        
+        </th>
+        <th> 
+            <select name="baker_id">
+                {% for baker in all_bakers  %}
+                <option value="{{ baker.id }}"
+                    {% if cake.baker.id == baker.id %} selected="selected" {% endif %}>
+                    {{ baker.full_name }}
+
+                </option>
+                {% endfor %}
+            </select>
+        </th>
+        <th>
+            <input type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
+           
+        </th>
+        <th>
+            <input type="number" name="selling_price" value="{{ cake.selling_price }}">
+        
+        </th>
+        <th>
+            <input type="text" name="vegetarian" value="{{ cake.vegetarian }}">
+        
+        </th>
+        <th>
+            <input type="number" name="qty_on_hand" value="{{ cake.qty_on_hand }}">
+        
+        </th>
+        <th>
+            <input type="number" name="daily_sales_forecast" value="{{ cake.daily_sales_forecast }}">
+        </th>
+        <th>
+            <input type="number" name="par_level" value="{{ cake.par_level }}">
+        
+        </th>            
+    </tr>
+    <button type="submit">Update Quantities</button>
+    </form>  
+    </table>
+
+{% endblock %}
