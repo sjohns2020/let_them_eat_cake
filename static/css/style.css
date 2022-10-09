@@ -25,3 +25,7 @@ body main {
     background-image: linear-gradient(rgba(205, 38, 139, 0.895), rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203));
     height: 50em;
 }
+
+.small-input{
+    width: 50%;
+}

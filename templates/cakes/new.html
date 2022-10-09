@@ -1,6 +1,70 @@
 {% extends './base.html' %}
 
 {% block content %}
-<br><br><br>
-<h1>Add cake form</h1>
+    <br><br><br>
+    <h1>Cakes Inventory</h1>
+    <a href="cakes/new">Add new Cake</a>
+
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Name</th>
+        <th>Baker</th>
+        <th>Cost</th>
+        <th>Selling Price</th>
+        <th>Sutable for Vegetarians?</th>
+        <th>On Hand Quantity</th>
+        <th>Daily Sales Forecast</th>
+        <th>Par Level</th>
+    </tr>
+    </form>  
+    <tr>
+
+        <form action="/cakes" method="post">
+        <th>
+            <input type="text" name="category" placeholder="Category" required autofocus>
+        
+        </th>
+        <th>
+            <input type="text" name="full_name" placeholder="full_name" required autofocus>
+        
+        </th>
+        <th> 
+            <select name="baker_id">
+                <option value="" disabled selected hidden>Please Choose</option>
+                {% for baker in all_bakers %}
+                <option value="{{ baker.id }}" placeholder="select">{{ baker.full_name }}</option>
+                 {{ baker.full_name }}
+                </option>
+                {% endfor %}
+            </select>
+        </th>
+        <th>
+            <input class="small-input" type="number" name="manufacture_cost" placeholder="manufacture_cost" required autofocus>
+           
+        </th>
+        <th>
+            <input class="small-input" type="number" name="selling_price" placeholder="selling_price" required autofocus>
+        
+        </th>
+        <th>
+            <input class="small-input" type="text" name="vegetarian" placeholder="vegetarian" required autofocus>
+        
+        </th>
+        <th>
+            <input class="small-input" type="number" name="qty_on_hand" placeholder="qty_on_hand" required autofocus>
+        
+        </th>
+        <th>
+            <input class="small-input" type="number" name="daily_sales_forecast" placeholder="daily_sales_forecast" required autofocus>
+        </th>
+        <th>
+            <input class="small-input" type="number" name="par_level" placeholder="par_level" required autofocus>
+        
+        </th>            
+    </tr>
+    <button type="submit">Add New Cake</button>
+    </form>  
+    </table>
+
 {% endblock %}

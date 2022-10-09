@@ -22,14 +22,15 @@ def dashboard():
 @cakes_blueprint.route("/cakes")
 def cakes():
     cakes = cake_repository.select_all()
-    return render_template("cakes/index.html", all_cakes = cakes)
+    bakers = baker_repository.select_all()
+    return render_template("cakes/index.html", all_cakes = cakes, all_bakers = bakers)
 
 # NEW
 # GET '/cakes/new'
 @cakes_blueprint.route("/cakes/new", methods=['GET'])
 def new_cake():
-    cakes = cake_repository.select_all()
-    return render_template("/cakes/new.html", all_cakes = cakes)
+    bakers = baker_repository.select_all()
+    return render_template("/cakes/new.html", all_bakers = bakers)
 
 # CREATE
 # POST '/cakes'

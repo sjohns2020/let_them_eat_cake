@@ -5,56 +5,72 @@
     <h1>Cakes Inventory</h1>
     <a href="cakes/new">Add new Cake</a>
 
+<table>
+    <tr>
+        <th>Category</th>
+        <th>Name</th>
+        <th>Baker</th>
+        <th>Cost</th>
+        <th>Selling Price</th>
+        <th>Sutable for Vegetarians?</th>
+        <th>On Hand Quantity</th>
+        <th>Daily Sales Forecast</th>
+        <th>Par Level</th>
+    </tr>
+    </form>  
+    {% for cake in all_cakes  %}
+    <tr>
 
-        <table>
-            <tr>
-                <th>Category</th>
-                <th>Name</th>
-                <th>Baker</th>
-                <th>Cost</th>
-                <th>Selling Price</th>
-                <th>Sutable for Vegetarians?</th>
-                <th>On Hand Quantity</th>
-                <th>Daily Sales Forecast</th>
-                <th>Par Level</th>
-            </tr>
-            </form>  
-            {% for cake in all_cakes  %}
-            <tr>
-                <form action="/cakes/{{cake.id}}" method="post">
-                <th>{{ cake.category }}</th>
-                <th>{{ cake.full_name }}</th>
-                <th>{{ cake.baker.full_name }}</th>
-                <th>{{ cake.manufacture_cost }}</th>
-                <th>{{ cake.selling_price }}</th>
-                <th>{{ cake.vegetarian }}</th>
-                <th>{{ cake.qty_on_hand }}</th>
-                <th>
-                    <input type="number" name="daily_sales_forecast" value="{{ cake.daily_sales_forecast }}">
-                </th>
-                <th>{{ cake.par_level }}</th>  
-                <th>
-                    <a href="/cakes/{{ cake.id }}/edit">Edit</a>
-                </th>   
-                </form>           
-            </tr>
-            {% endfor %}
-            <input type="submit" value="Update Quantities">
-            </form>  
-            </table>
+        <form action="/cakes/{{cake.id}}" method="post">
+        <th>
+            <input type="text" name="category" value="{{ cake.category }}">
+        
+        </th>
+        <th>
+            <input type="text" name="full_name" value="{{ cake.full_name }}">
+        
+        </th>
+        <th> 
+            <select name="baker_id">
+                {% for baker in all_bakers  %}
+                <option value="{{ baker.id }}"
+                    {% if cake.baker.id == baker.id %} selected="selected" {% endif %}>
+                    {{ baker.full_name }}
 
- 
-    <!-- self.full_name = full_name 
-    self.qty_on_hand = qty_on_hand 
-    self.manufacture_cost = manufacture_cost
-    self.selling_price = selling_price
-    self.baker = baker
-    self.category = category
-    self.vegetarian = vegetarian
-    self.daily_sales_forecast = daily_sales_forecast
-    self.par_level = par_level
-    self.id = id -->
-
-
+                </option>
+                {% endfor %}
+            </select>
+        </th>
+        <th>
+            <input class="small-input" type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
+           
+        </th>
+        <th>
+            <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
+        
+        </th>
+        <th>
+            <input class="small-input" type="text" name="vegetarian" value="{{ cake.vegetarian }}">
+        
+        </th>
+        <th>
+            <input class="small-input" type="number" name="qty_on_hand" value="{{ cake.qty_on_hand }}">
+        
+        </th>
+        <th>
+            <input class="small-input" type="number" name="daily_sales_forecast" value="{{ cake.daily_sales_forecast }}">
+        </th>
+        <th>
+            <input class="small-input" type="number" name="par_level" value="{{ cake.par_level }}">
+        
+        </th>            
+    </tr>
+    {% endfor %}
+    <button type="submit">Update Quantities</button>
+    </form>  
+    </table>
 
 {% endblock %}
+
+
+
