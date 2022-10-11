@@ -10,16 +10,21 @@
 </head>
 <body>
     <header>
-        <ul>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/cakes">Inventory</a></li>
-            <li><a href="/bakers">Bakers</a></li>
-            <li><a href="/">Cake Shop</a></li>
-        </ul>
-        <h1>Cake Shop</h1>
-        <img href="/" src=" {{ url_for('static', filename='images/background1.png') }} " alt="logo">
+        <!-- <h1>Cake Shop</h1> -->
+        <!-- <img href="/" src=" {{ url_for('static', filename='images/background1.png') }} " alt="logo"> -->
     </header>
     <main>
+        <div id="cakes-cakes">
+        </div>
+        <nav>
+            <ul id="nav-ul">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/cakes">Inventory</a></li>
+                <li><a href="/bakers">Bakers</a></li>
+                <li><a href="/">Cake Shop</a></li>
+            </ul>
+            
+        </nav>
         {% block content %}
         
         {% endblock  %}

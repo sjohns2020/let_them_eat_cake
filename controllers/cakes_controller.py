@@ -15,10 +15,7 @@ def landing():
 @cakes_blueprint.route("/dashboard")
 def dashboard():
     cakes = cake_repository.select_all()
-    low_stock_cakes = []
-    for cake in cakes:
-        if cake.qty_on_hand < cake.par_level:
-            low_stock_cakes.append(cake)
+    low_stock_cakes = cake_repository.select_all_low_stock()
     return render_template("dashboard/index.html", all_cakes = cakes, low_stock_cakes = low_stock_cakes)
     
 

@@ -23,36 +23,37 @@
     <tr>
         <form action="/cakes/{{cake.id}}" method="post">
         <td><a href="/cakes/{{cake.id}}/details" class="fa fa-pencil"></a></th>
-        <td>
-            <input type="text" name="category" value="{{ cake.category }}">
-        
-        </td>
-        <td>
-            <input type="text" name="full_name" value="{{ cake.full_name }}">
-        
-        </td>
-        <td> 
-            <select name="baker_id">
-                {% for baker in all_bakers  %}
-                <option value="{{ baker.id }}"
-                    {% if cake.baker.id == baker.id %} selected="selected" {% endif %}>
-                    {{ baker.full_name }}
+        <input type="hidden" name="category" value="{{ cake.category }}">
+        <input type="hidden" name="full_name" value="{{ cake.full_name }}">
+        <input type="hidden" name="baker_id" value="{{ cake.baker.id }}">
+        <input type="hidden" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
+        <input type="hidden" name="selling_price" value="{{ cake.selling_price }}">
+        <input type="hidden" name="vegetarian" value="{{ cake.vegetarian }}">
 
-                </option>
-                {% endfor %}
-            </select>
-        </td>
         <td>
-            <input class="small-input" type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
-           
-        </td>
-        <td>
-            <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
+            <p name="category">{{ cake.category }}</p>
+  
         
         </td>
         <td>
-            <input class="small-input" type="text" name="vegetarian" value="{{ cake.vegetarian }}">
+            <p name="full_name">{{ cake.full_name }}</p>
         
+        </td>
+        
+        <td> 
+            <p name="baker_id">{{ cake.baker.full_name }}</p>
+        </td>
+        <td>
+            <p name="manufacture_cost">£{{ cake.manufacture_cost}}</p>
+        
+        </td>
+        <td>
+            <p name="selling_price">£{{ cake.selling_price }}</p>
+        
+        </td>
+        <td>
+            <p name="vegetarian">{% if cake.vegetarian == True %} Yes {% else %} No {% endif %}</p>
+    
         </td>
         <td>
             <input class="small-input" type="number" name="qty_on_hand" value="{{ cake.qty_on_hand }}">

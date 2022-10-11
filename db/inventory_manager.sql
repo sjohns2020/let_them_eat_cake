@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS inventory;
+-- DROP TABLE IF EXISTS inventory;
 DROP TABLE IF EXISTS cakes;
 DROP TABLE IF EXISTS bakers;
 
@@ -14,8 +14,8 @@ CREATE TABLE cakes (
   id SERIAL PRIMARY KEY,
   full_name VARCHAR(255),
   qty_on_hand INT,
-  manufacture_cost FLOAT,
-  selling_price FLOAT,
+  manufacture_cost INT,
+  selling_price INT,
   baker_id INT NOT NULL REFERENCES bakers(id) ON DELETE CASCADE,
   category VARCHAR(255),
   vegetarian BOOLEAN,

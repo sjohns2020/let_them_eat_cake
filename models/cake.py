@@ -11,12 +11,15 @@ class Cake:
             self.par_level = par_level
             self.id = id
 
-    def profit_margin():
-        pass
+    def profit_margin(self):
+        margin = self.selling_price - self.manufacture_cost
+        return margin
 
-    # def low_stock(self):
-    #     if self.qty_on_hand < self.par_level:
-    #         return
+    def is_stock_low(self):
+        return self.qty_on_hand < self.par_level
+
+    
+         
 
 
 

@@ -6,9 +6,42 @@ body header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: fit-content;
-    background-image: linear-gradient(white,white, white,  white, white,  white, rgba(205, 38, 139, 0.895));
+    height: 108px;
+    background-image: url("../images/heading_candles.png");
+    background-repeat: repeat;
+    background-size: contain;
 }
+
+#cakes-cakes {
+    background-image: url("../images/background1.png");
+    background-repeat: repeat;
+    background-size:contain;
+    height: 108px;
+}
+
+#nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+#nav-ul li {
+    float: left;
+}
+
+#nav-ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#nav-ul li a:hover {
+    background-color: #111;
+}
+
+
 
 body header ul{
     list-style: none;
@@ -22,7 +55,7 @@ body header img {
 
 body main {
     background-image: url('images/background1.png');
-    background-image: linear-gradient(rgba(205, 38, 139, 0.895), rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203));
+    background-image: linear-gradient( rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203),  rgb(154, 217, 203), white);
     height: 50em;
 }
 
@@ -33,10 +66,32 @@ body main {
 .table{
     border-collapse: collapse;
     width: 100%;
+    table-layout: auto;
 }
 
 #dashboard-table {
     width: 30%;
+}
+
+.page-title-div{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+.title-div {
+    display: flex;
+}
+.page-title {
+    border-style: solid;
+    padding: 10px;
+}
+.dashboard-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    border-style: solid;
+    padding: 10px;
 }
 
 .table td, .table th{
@@ -46,7 +101,7 @@ body main {
 }
 
 .table tr:nth-child(even){background-color: #f2f2f2;}
-.table tr:nth-child(odd){background-color: #c9e6c7;}
+.table tr:nth-child(odd){background-color: rgb(255, 223, 228);}
 .table tr:hover {background-color: #fff;}
 
 
@@ -54,7 +109,7 @@ body main {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: rgb(15, 196, 133);
+    background-color:  #1c4af2;
     color: white;
 }
 

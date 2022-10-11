@@ -6,6 +6,8 @@
 
 <h2>Out of stock items</h2>
 
+
+
 <table class="table" id="dashboard-table">
     <tr>
         <th>Name</th>
@@ -50,7 +52,10 @@
         <td>
             <p class="dash"  name="par_level" >{{ cake.par_level }}</p>
         
-        </td>            
+        </td>  
+        <td>
+            <p> {{ cake.profit_margin() }}</p>
+        </td>          
     </tr>
     {% endfor %}
     </table>

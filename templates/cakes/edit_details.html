@@ -37,28 +37,24 @@
             </select>
         </td>
         <td>
-            <input class="small-input" type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
+            <input class="small-input" type="text" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
            
         </td>
         <td>
-            <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
+            <input class="small-input" type="text" name="selling_price" value="{{ cake.selling_price }}">
         
         </td>
         <td>
             <input class="small-input" type="text" name="vegetarian" value="{{ cake.vegetarian }}">
         
         </td>
-        <td>
             <input class="small-input" type="hidden" name="qty_on_hand" value="{{ cake.qty_on_hand }}">
         
-        </td>
-        <td>
+
             <input class="small-input" type="hidden" name="daily_sales_forecast" value="{{ cake.daily_sales_forecast }}">
-        </td>
-        <td>
+
             <input class="small-input" type="hidden" name="par_level" value="{{ cake.par_level }}">
-        
-        </td>            
+                   
     </tr>
     <button type="submit">Save Cake Details</button>
     </form>  

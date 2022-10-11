@@ -8,7 +8,7 @@ import repositories.baker_repository as baker_repository
 
 def save(cake):
     sql = "INSERT INTO cakes (full_name , qty_on_hand, manufacture_cost, selling_price, baker_id, category, vegetarian, daily_sales_forecast, par_level) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) RETURNING *"
-    values = [cake.full_name, cake.qty_on_hand, cake.manufacture_cost, cake.manufacture_cost, cake.baker.id, cake.category, cake.vegetarian, cake.daily_sales_forecast, cake.par_level]
+    values = [cake.full_name, cake.qty_on_hand, cake.manufacture_cost, cake.selling_price, cake.baker.id, cake.category, cake.vegetarian, cake.daily_sales_forecast, cake.par_level]
     results = run_sql(sql, values)
     id = results[0]['id']
     cake.id = id
@@ -19,6 +19,18 @@ def select_all():
     cakes = []
 
     sql = "SELECT * FROM cakes"
+    results = run_sql(sql)
+
+    for row in results:
+        baker = baker_repository.select(row['baker_id'])
+        cake = Cake (row['full_name'], row['qty_on_hand'], row['manufacture_cost'], row['manufacture_cost'], baker, row['category'], row['vegetarian'], row['daily_sales_forecast'], row['par_level'], row['id'] )
+        cakes.append(cake)
+    return cakes
+
+def select_all_low_stock():
+    cakes = []
+
+    sql = "select * from cakes where qty_on_hand < par_level"
     results = run_sql(sql)
 
     for row in results:
@@ -55,5 +67,4 @@ def delete(id):
 def update(cake):
     sql = "UPDATE cakes SET(full_name , qty_on_hand, manufacture_cost, selling_price, baker_id, category, vegetarian, daily_sales_forecast, par_level) = (%s, %s, %s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
     values =  [cake.full_name, cake.qty_on_hand, cake.manufacture_cost, cake.selling_price, cake.baker.id, cake.category, cake.vegetarian, cake.daily_sales_forecast, cake.par_level, cake.id]
-    print(values)
     run_sql(sql, values)

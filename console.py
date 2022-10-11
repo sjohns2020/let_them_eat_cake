@@ -16,10 +16,12 @@ baker_repository.save(baker_2)
 
 baker_repository.select_all()
 
-cake_1 = Cake("Victoria Sponge", 10, 11, 23, baker_1, "Birthday Cake", True, 4, 6)
+cake_1 = Cake("Victoria Sponge", 10, 11, 23, baker_1, "Birthday Cake", True, 4, 4)
 cake_repository.save(cake_1)
 cake_2 = Cake("Chocolate Egg Cake", 5, 12, 22, baker_2, "Easter Cake", False, 10, 13)
 cake_repository.save(cake_2)
+cake_3 = Cake("Funfetti", 0, 20, 30, baker_1, "Easter Cake", True, 8, 4)
+cake_repository.save(cake_3)
 
 
 pdb.set_trace()
