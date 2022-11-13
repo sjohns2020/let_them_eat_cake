@@ -6,16 +6,21 @@
 
 <table class="table">
     <tr>
+        <th></th>
         <th>Category</th>
         <th>Name</th>
         <th>Baker</th>
         <th>Cost</th>
         <th>Selling Price</th>
         <th>Sutable for Vegetarians?</th>
+        <th></th>
 
     </tr>
     </form>  
     <tr>
+        <form action="/cakes/{{cake.id}}/delete" method="post"> 
+        <td><button type="submit" >Remove Cake</button></td> 
+        </form>  
         <form action="/cakes/{{cake.id}}" method="post">
         <td>
             <input type="text" name="category" value="{{ cake.category }}">
@@ -41,11 +46,11 @@
            
         </td>
         <td>
-            <input class="small-input" type="text" name="selling_price" value="{{ cake.selling_price }}">
+            <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
         
         </td>
         <td>
-            <input class="small-input" type="text" name="vegetarian" value="{{ cake.vegetarian }}">
+            <input class="small-input" type="number" name="vegetarian" value="{{ cake.vegetarian }}">
         
         </td>
             <input class="small-input" type="hidden" name="qty_on_hand" value="{{ cake.qty_on_hand }}">
@@ -54,10 +59,10 @@
             <input class="small-input" type="hidden" name="daily_sales_forecast" value="{{ cake.daily_sales_forecast }}">
 
             <input class="small-input" type="hidden" name="par_level" value="{{ cake.par_level }}">
-                   
+            <td><button type="submit">Save Cake Details</button></td>
+        </form>  
     </tr>
-    <button type="submit">Save Cake Details</button>
-    </form>  
+
     </table>
 
 {% endblock %}

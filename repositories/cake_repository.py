@@ -23,7 +23,7 @@ def select_all():
 
     for row in results:
         baker = baker_repository.select(row['baker_id'])
-        cake = Cake (row['full_name'], row['qty_on_hand'], row['manufacture_cost'], row['manufacture_cost'], baker, row['category'], row['vegetarian'], row['daily_sales_forecast'], row['par_level'], row['id'] )
+        cake = Cake (row['full_name'], row['qty_on_hand'], row['manufacture_cost'], row['selling_price'], baker, row['category'], row['vegetarian'], row['daily_sales_forecast'], row['par_level'], row['id'] )
         cakes.append(cake)
     return cakes
 
@@ -35,7 +35,7 @@ def select_all_low_stock():
 
     for row in results:
         baker = baker_repository.select(row['baker_id'])
-        cake = Cake (row['full_name'], row['qty_on_hand'], row['manufacture_cost'], row['manufacture_cost'], baker, row['category'], row['vegetarian'], row['daily_sales_forecast'], row['par_level'], row['id'] )
+        cake = Cake (row['full_name'], row['qty_on_hand'], row['manufacture_cost'], row['selling_price'], baker, row['category'], row['vegetarian'], row['daily_sales_forecast'], row['par_level'], row['id'] )
         cakes.append(cake)
     return cakes
 

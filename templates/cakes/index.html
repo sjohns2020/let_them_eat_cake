@@ -17,8 +17,8 @@
         <th>On Hand Quantity</th>
         <th>Daily Sales Forecast</th>
         <th>Par Level</th>
-    </tr>
-    </form>  
+        <th></th>
+    </tr> 
     {% for cake in all_cakes %}
     <tr>
         <form action="/cakes/{{cake.id}}" method="post">
@@ -29,7 +29,9 @@
         <input type="hidden" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
         <input type="hidden" name="selling_price" value="{{ cake.selling_price }}">
         <input type="hidden" name="vegetarian" value="{{ cake.vegetarian }}">
-
+        
+        
+   
         <td>
             <p name="category">{{ cake.category }}</p>
   
@@ -65,12 +67,13 @@
         <td>
             <input class="small-input" type="number" name="par_level" value="{{ cake.par_level }}">
         
-        </td>            
+        </td>   
+        <td><button type="submit">Update Quantities</button>    </td>     
     </tr>
-    {% endfor %}
-    <button type="submit">Update Quantities</button>
-    </form>  
+    {% endfor %} 
+    
     </table>
+    </form> 
 
 {% endblock %}
 

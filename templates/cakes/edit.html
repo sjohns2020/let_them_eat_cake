@@ -19,6 +19,7 @@
     </tr>
     </form>  
     <tr>
+         
 
         <form action="/cakes/{{cake.id}}" method="post">
         <td>
@@ -39,15 +40,12 @@
                 </option>
                 {% endfor %}
             </select>
-        </th>
-        <th>
-            <input class="small-input" type="number" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
+        </td>
+        <input class="small-input" type="text" name="manufacture_cost" value="{{ cake.manufacture_cost }}">
            
         </td>
         <td>
-            <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
-        
-        </td>
+        <input class="small-input" type="number" name="selling_price" value="{{ cake.selling_price }}">
         <td>
             <input class="small-input" type="number" name="vegetarian" value="{{ cake.vegetarian }}">
         

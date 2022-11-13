@@ -17,6 +17,7 @@ class Cake:
 
     def is_stock_low(self):
         return self.qty_on_hand < self.par_level
+    
 
     
          

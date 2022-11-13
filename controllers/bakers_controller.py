@@ -35,7 +35,7 @@ def create_baker():
 @bakers_blueprint.route("/bakers/<id>", methods=['GET'])
 def show_baker(id):
     baker = baker_repository.select(id)
-    return render_template('bakers/show.html', baker = baker)
+    return render_template('bakers/edit.html', baker = baker)
 
 # EDIT
 # GET '/bakers/<id>/edit'

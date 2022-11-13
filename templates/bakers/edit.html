@@ -1,0 +1,45 @@
+
+{% extends './base.html' %}
+
+{% block content %}
+    <br><br><br>
+    <h1>Bakers</h1>
+    <a href="/bakers/new">Add New Baker</a>
+
+<form action="/bakers/{{baker.id}}" method="post">
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Favourite Quote</th>
+        <th>Length of Service</th>
+        <th>Salary</th>
+        <th></th>
+
+    </tr> 
+    <tr>
+        <td><a href="/bakers/{{baker.id}}" class="fa fa-pencil"></a></th>
+
+        <td>
+            <input class="small-input" type="text" name="full_name" value="{{ baker.full_name }}">
+  
+        
+        </td>
+        <td>
+            <input class="small-input" type="text" name="favourite_quote" value="{{ baker.favourite_quote }}">
+        
+        </td>
+        
+        <td> 
+            <input class="small-input" type="number" name="length_of_service" value="{{ baker.length_of_service }}">
+        </td>
+        <td>
+            <input class="small-input" type="number" name="salary" value="{{ baker.salary }}">
+        </td>
+        <td>    <button type="submit">Update Baker Details</button></td>
+                   
+    </tr>
+    </table>
+    </form> 
+
+{% endblock %}

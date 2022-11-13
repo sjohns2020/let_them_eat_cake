@@ -1,7 +1,44 @@
+
 {% extends './base.html' %}
 
 {% block content %}
-<br><br><br>
-<h1>Bakers Page</h1>
-<a href="/bakers/new">Add New Baker</a>
+    <br><br><br>
+    <h1>Bakers</h1>
+    <a href="/bakers/new">Add New Baker</a>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Favourite Quote</th>
+        <th>Length of Service</th>
+        <th>Salary</th>
+
+    </tr> 
+    {% for baker in all_bakers %}
+    <tr>
+        <td><a href="/bakers/{{baker.id}}" class="fa fa-pencil"></a></th>
+
+        <td>
+            <p name="full_name">{{ baker.full_name }}</p>
+  
+        
+        </td>
+        <td>
+            <p name="favourite_quote">{{ baker.favourite_quote }}</p>
+        
+        </td>
+        
+        <td> 
+            <p name="length_of_service">{{ baker.length_of_service }}</p>
+        </td>
+        <td>
+            <p name="salary">£{{ baker.salary}}</p>
+        
+        </td>
+                   
+    </tr>
+    {% endfor %} 
+    </table>
+
 {% endblock %}
